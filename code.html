@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Hub - Generators, Fans, Coolers & Heaters</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #333; color: white; text-align: center; padding: 20px; }
+        nav { background-color: #555; padding: 10px; text-align: center; }
+        nav button { background: none; border: none; color: white; padding: 10px; cursor: pointer; margin: 0 10px; }
+        nav button:hover { background-color: #777; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .filter { margin-bottom: 20px; }
+        .filter select { padding: 8px; margin-left: 10px; }
+        .item { display: flex; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+        .item img { width: 200px; height: 150px; object-fit: cover; margin-right: 20px; }
+        .item h3 { margin: 0; }
+        .item p { margin: 5px 0; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
+        button:hover { background-color: #0056b3; }
+        #booking-form { display: none; margin-top: 20px; }
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 10px; }
+        input, select { padding: 8px; margin-top: 5px; }
+        .hidden { display: none; }
+        footer { background-color: #333; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rental Hub</h1>
+        <p>Rent Generators, Fans, Coolers & Heaters Online!</p>
+    </header>
+    
+    <nav>
+        <button onclick="showCategory('generators')">Generators</button>
+        <button onclick="showCategory('fans')">Fans</button>
+        <button onclick="showCategory('coolers')">Coolers</button>
+        <button onclick="showCategory('heaters')">Heaters</button>
+    </nav>
+    
+    <div class="container">
+        <!-- Generators Section -->
+        <div id="generators" class="category">
+            <h2>Generators</h2>
+            <div class="filter">
+                <label for="kw-filter">Filter by KW:</label>
+                <select id="kw-filter">
+                    <option value="all">All KW</option>
+                    <option value="15">15 KW</option>
+                    <option value="25">25 KW</option>
+                    <option value="32">32 KW</option>
+                    <option value="40">40 KW</option>
+                    <option value="64">64 KW</option>
+                    <option value="125">125 KW</option>
+                </select>
+            </div>
+            <div class="item" data-kw="15">
+                <img src="https://via.placeholder.com/200x150?text=15KW+Generator" alt="15KW Generator">
+                <div>
+                    <h3>Commercial Generator (15 KW)</h3>
+                    <p>Suitable for small offices or events. Rs 3500/day.</p>
+                    <button onclick="showBookingForm('Commercial Generator (15 KW)')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-kw="25">
+                <img src="https://via.placeholder.com/200x150?text=25KW+Generator" alt="25KW Generator">
+                <div>
+                    <h3>Mid-Range Generator (25 KW)</h3>
+                    <p>Great for medium events or sites. Rs 4500/day.</p>
+                    <button onclick="showBookingForm('Mid-Range Generator (25 KW)')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-kw="32">
+                <img src="https://via.placeholder.com/200x150?text=32KW+Generator" alt="32KW Generator">
+                <div>
+                    <h3>Heavy-Duty Generator (32 KW)</h3>
+                    <p>High-capacity for construction. Rs 5500/day.</p>
+                    <button onclick="showBookingForm('Heavy-Duty Generator (32 KW)')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-kw="40">
+                <img src="https://via.placeholder.com/200x150?text=40KW+Generator" alt="40KW Generator">
+                <div>
+                    <h3>Backup Generator (40 KW)</h3>
+                    <p>Reliable for large homes or small businesses. Rs 6000/day.</p>
+                    <button onclick="showBookingForm('Backup Generator (40 KW)')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-kw="64">
+                <img src="https://via.placeholder.com/200x150?text=64KW+Generator" alt="64KW Generator">
+                <div>
+                    <h3>Industrial Generator (64 KW)</h3>
+                    <p>Powerful for factories or large events. Rs 8000/day.</p>
+                    <button onclick="showBookingForm('Industrial Generator (64 KW)')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-kw="125">
+                <img src="https://via.placeholder.com/200x150?text=125KW+Generator" alt="125KW Generator">
+                <div>
+                    <h3>Max Power Generator (125 KW)</h3>
+                    <p>On Order - Call for Details. Contact us at 123-456-7890.</p>
+                    <button onclick="showBookingForm('Max Power Generator (125 KW) - Inquiry')">Book Now</button>
+                </div>
+            </div>
+            <!-- Add more if needed -->
+        </div>
+        
+        <!-- Fans Section -->
+        <div id="fans" class="category hidden">
+            <h2>Fans</h2>
+            <div class="filter">
+                <label for="fan-filter">Filter by Size:</label>
+                <select id="fan-filter">
+                    <option value="all">All Sizes</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </div>
+            <div class="item" data-size="small">
+                <img src="https://via.placeholder.com/200x150?text=Small+Fan" alt="Small Fan">
+                <div>
+                    <h3>Desk Fan (Small)</h3>
+                    <p>Quiet and efficient for personal use. $10/day.</p>
+                    <button onclick="showBookingForm('Desk Fan (Small)')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-size="large">
+                <img src="https://via.placeholder.com/200x150?text=Large+Fan" alt="Large Fan">
+                <div>
+                    <h3>Industrial Fan (Large)</h3>
+                    <p>High-power for warehouses. $30/day.</p>
+                    <button onclick="showBookingForm('Industrial Fan (Large)')">Book Now</button>
+                </div>
+            </div>
+            <!-- Add more fans -->
+        </div>
+        
+        <!-- Coolers Section -->
+        <div id="coolers" class="category hidden">
+            <h2>Coolers</h2>
+            <div class="filter">
+                <label for="cooler-filter">Filter by Type:</label>
+                <select id="cooler-filter">
+                    <option value="all">All Types</option>
+                    <option value="air">Air Cooler</option>
+                    <option value="water">Water Cooler</option>
+                </select>
+            </div>
+            <div class="item" data-type="air">
+                <img src="https://via.placeholder.com/200x150?text=Air+Cooler" alt="Air Cooler">
+                <div>
+                    <h3>Portable Air Cooler</h3>
+                    <p>Evaporative cooling for dry areas. $20/day.</p>
+                    <button onclick="showBookingForm('Portable Air Cooler')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-type="water">
+                <img src="https://via.placeholder.com/200x150?text=Water+Cooler" alt="Water Cooler">
+                <div>
+                    <h3>Water Cooler</h3>
+                    <p>Chilled water dispenser. $15/day.</p>
+                    <button onclick="showBookingForm('Water Cooler')">Book Now</button>
+                </div>
+            </div>
+            <!-- Add more coolers -->
+        </div>
+        
+        <!-- Heaters Section -->
+        <div id="heaters" class="category hidden">
+            <h2>Heaters</h2>
+            <div class="filter">
+                <label for="heater-filter">Filter by Type:</label>
+                <select id="heater-filter">
+                    <option value="all">All Types</option>
+                    <option value="gas">Gas Heater</option>
+                    <option value="electric">Electric Heater</option>
+                </select>
+            </div>
+            <div class="item" data-type="gas">
+                <img src="https://via.placeholder.com/200x150?text=Gas+Heater" alt="Gas Heater">
+                <div>
+                    <h3>Gas Heater</h3>
+                    <p>Efficient for outdoor or large spaces. $25/day.</p>
+                    <button onclick="showBookingForm('Gas Heater')">Book Now</button>
+                </div>
+            </div>
+            <div class="item" data-type="electric">
+                <img src="https://via.placeholder.com/200x150?text=Electric+Heater" alt="Electric Heater">
+                <div>
+                    <h3>Electric Heater</h3>
+                    <p>Portable and safe for indoor use. $15/day.</p>
+                    <button onclick="showBookingForm('Electric Heater')">Book Now</button>
+                </div>
+            </div>
+            <!-- Add more heaters -->
+        </div>
+        
+        <div id="booking-form">
+            <h3>Book Your Item</h3>
+            <form id="form">
+                <label for="item-type">Item Type:</label>
+                <input type="text" id="item-type" readonly>
+                
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" required>
+                
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" required>
+                
+                <label for="delivery">Delivery Option:</label>
+                <select id="delivery">
+                    <option>Pickup</option>
+                    <option>Delivery ($20 extra)</option>
+                </select>
+                
+                <button type="submit">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Contact: info@rentalhub.com | Phone: 123-456-7890</p>
+    </footer>
+    
+    <script>
+        function showCategory(categoryId) {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(cat => cat.classList.add('hidden'));
+            document.getElementById(categoryId).classList.remove('hidden');
+        }
+        
+        // Filter functions for each category
+        document.getElementById('kw-filter').addEventListener('change', function() {
+            filterItems('generators', 'kw', this.value);
+        });
+        document.getElementById('fan-filter').addEventListener('change', function() {
+            filterItems('fans', 'size', this.value);
+        });
+        document.getElementById('cooler-filter').addEventListener('change', function() {
+            filterItems('coolers', 'type', this.value);
+        });
+        document.getElementById('heater-filter').addEventListener('change', function() {
+            filterItems('heaters', 'type', this.value);
+        });
+        
+        function filterItems(categoryId, attr, value) {
+            const items = document.querySelectorAll(`#${categoryId} .item`);
+            items.forEach(item => {
+                if (value === 'all' || item.getAttribute(`data-${attr}`) === value) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+        
+        function showBookingForm(type) {
+            document.getElementById('booking-form').style.display = 'block';
+            document.getElementById('item-type').value = type;
+        }
+        
+        document.getElementById('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Booking submitted! (In a real site, this would send data to a server.)');
+        });
+    </script>
+</body>
+</html>
